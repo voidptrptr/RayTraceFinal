@@ -39,7 +39,7 @@ hittable_list random_scene() {
     for (int a = -11; a < 11; a++) {
         for (int b = -11; b < 11; b++) {
             auto choose_mat = random_double();
-            point3 center(a + 0.9 * random_double(), 0.2, b + 0.9 * random_double());
+            point3 center(a + 0.9 * random_double(), random_double(1, 6), b + 0.9 * random_double());
 
             if ((center - point3(4, 0.2, 0)).length() > 0.9) {
                 shared_ptr<material> sphere_material;
@@ -76,8 +76,8 @@ hittable_list random_scene() {
     auto material4 = make_shared<dielectric>(3.5);
     auto material5 = make_shared<dielectric>(8.5);
     auto material6 = make_shared<dielectric>(2.5);
-    world.add(make_shared<sphere>(point3(4, 1, 0), 1.0, material2));
-    world.add(make_shared<sphere>(point3(2, 1, 2.5), 1.0, material3));
+    //world.add(make_shared<sphere>(point3(4, 1, 0), 1.0, material2));
+    world.add(make_shared<sphere>(point3(2, 1, -2), 1.0, material5));
     return world;
     
 }
